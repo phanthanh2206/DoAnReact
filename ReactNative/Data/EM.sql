@@ -36,6 +36,7 @@ CREATE TABLE `role` (
 CREATE TABLE `bonus` (
   `bonus_id` int(11) NOT NULL AUTO_INCREMENT,
   `account_id` int(11) NOT NULL,
+   increase int not null,
   `reason` varchar(200) DEFAULT NULL,
   `created_dated` date DEFAULT NULL,
   `updated_date` date DEFAULT NULL,
@@ -71,6 +72,7 @@ CREATE TABLE `department` (
 CREATE TABLE `leave` (
   `leave_id` int(11) NOT NULL AUTO_INCREMENT,
   `account_id` int(11) NOT NULL,
+  decrease int not null,
   `reason` varchar(200) DEFAULT NULL,
   `created_dated` date DEFAULT NULL,
   `updated_date` date DEFAULT NULL,
@@ -96,11 +98,16 @@ CREATE TABLE `salary` (
   `salary_id` int(11) NOT NULL AUTO_INCREMENT,
   `actual_salary` float NOT NULL,
   `pay_date` date DEFAULT NULL,
-  `leave_id` int(11) NOT NULL,
-  `bonus_id` int(11) NOT NULL,
+  `account_id` int(11) NOT NULL,
   `created_dated` date DEFAULT NULL,
   `updated_date` date DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`salary_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `role_account` (
+  `role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `account_id` varchar(50) NOT NULL,
+  PRIMARY KEY (`role_id`,`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
