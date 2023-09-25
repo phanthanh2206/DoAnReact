@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import java.time.Instant;
 
 @Entity
-@Table(name="account")
+@Table(name="account_details")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,12 +19,6 @@ public class Account {
     private Integer accountId;
     @Column(name = "full_name")
     private String fullName;
-    @Column(name = "username")
-    private String username;
-    @Column(name = "password")
-    private String password;
-    @Column(name = "email")
-    private String email;
     @Column(name = "age")
     private int age;
     @Column(name = "gender")
