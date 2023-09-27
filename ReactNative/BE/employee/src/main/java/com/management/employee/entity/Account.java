@@ -1,5 +1,6 @@
 package com.management.employee.entity;
 
+import com.management.employee.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,7 +27,7 @@ public class Account {
     @Column(name = "address")
     private String address;
     @Column(name = "dob")
-    private Instant dob;
+    private String dob;
     @Column(name = "skill")
     private String skill;
     @Column(name = "level")
@@ -35,6 +36,4 @@ public class Account {
     private int departmentId;
     @Column(name = "position_id")
     private int positionId;
-    @Column(name = "role_id")
-    private int roleId;
 }

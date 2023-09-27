@@ -6,17 +6,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="bonus")
+@Table(name="`leave`")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Bonus {
+public class Leave {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "bonus_id")
-    private Integer bonusId;
+    @Column(name = "leave_id")
+    private Integer leaveId;
     @Column(name = "account_id")
     private int accountId;
+    @Column(name = "decrease")
+    private float decrease;
     @Column(name = "reason")
     private String reason;
 }

@@ -17,12 +17,12 @@ public class Salary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "salary_id")
     private Integer salaryId;
+    @Column(name = "account_id")
+    private Integer accountId;
     @Column(name = "actual_salary")
-    private double actualSalary;
-    @Column(name = "pay_date")
-    private Instant payDate;
-    @Column(name = "leave_id")
-    private int leaveId;
-    @Column(name = "bonus_id")
-    private int bonusId;
+    private float actualSalary;
+    @Column(name = "bank_name")
+    private String bankName;
+    @Column(name = "bank_no")
+    private long bankNo;
 }
