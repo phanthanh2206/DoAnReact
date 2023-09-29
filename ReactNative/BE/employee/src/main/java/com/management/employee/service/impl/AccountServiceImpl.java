@@ -1,5 +1,6 @@
 package com.management.employee.service.impl;
 
+import com.management.employee.dto.AccountInfoDTO;
 import com.management.employee.entity.Account;
 import com.management.employee.repository.AccountRepository;
 import com.management.employee.service.AccountService;
@@ -32,5 +33,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void deleteAccount(int id) {
         accountRepository.deleteById(id);
+    }
+
+    @Override
+    public List<AccountInfoDTO> getAccountInfo() {
+        return accountRepository.getAccountInfo();
     }
 }

@@ -1,5 +1,6 @@
 package com.management.employee.service;
 
+import com.management.employee.dto.AccountInfoDTO;
 import com.management.employee.entity.Account;
 import org.springframework.stereotype.Service;
 
@@ -14,4 +15,5 @@ public interface AccountService {
     public Account updateAccount(Account account);
 
     public void deleteAccount(int id);
+    public List<AccountInfoDTO> getAccountInfo();
 }

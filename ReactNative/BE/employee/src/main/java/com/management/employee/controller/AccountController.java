@@ -1,5 +1,6 @@
 package com.management.employee.controller;
 
+import com.management.employee.dto.AccountInfoDTO;
 import com.management.employee.entity.Account;
 import com.management.employee.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,9 @@ public class AccountController {
     @DeleteMapping(value = "/account/deleteAccount/{id}")
     public void deleteAccount(@PathVariable int id) {
         accountService.deleteAccount(id);
+    }
+    @GetMapping(value = "/account/AccountInfo")
+    public List<AccountInfoDTO> getAccountDetail(){
+        return accountService.getAccountInfo();
     }
 }
