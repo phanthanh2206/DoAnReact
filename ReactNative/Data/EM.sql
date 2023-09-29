@@ -50,6 +50,7 @@ CREATE TABLE `contract` (
   `updated_date` date DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
+  `is_actived`bit default 1,
   PRIMARY KEY (`contract_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
