@@ -1,7 +1,7 @@
 package com.management.employee.entity;
 
 import com.management.employee.entity.enums.Role;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
