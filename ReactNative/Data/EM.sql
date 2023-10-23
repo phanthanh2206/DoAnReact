@@ -1,12 +1,12 @@
-DROP DATABASE IF EXISTS employee_management ;
-CREATE DATABASE employee_management;
-USE employee_management;
+DROP DATABASE IF EXISTS employee_management_1 ;
+CREATE DATABASE employee_management_1;
+USE employee_management_1;
 CREATE TABLE `account` (
   `account_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `is_activaed` bit(1) DEFAULT b'0',
+  `is_actived` bit(1) DEFAULT b'0',
   PRIMARY KEY (`account_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
