@@ -1,20 +1,27 @@
 package com.management.employee.service.impl;
 
 import com.management.employee.dto.AccountInfoDTO;
+import com.management.employee.dto.AccountInfoDTOimpl;
 import com.management.employee.dto.AccountInfoExtraDTO;
 import com.management.employee.entity.Account;
 import com.management.employee.repository.AccountRepository;
 import com.management.employee.service.AccountService;
+import com.management.employee.specification.AccountSpecification;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.function.Function;
 
 @Service
 public class AccountServiceImpl implements AccountService {
+    @Autowired
+    private ModelMapper modelMapper;
     @Autowired(required=true)
     private AccountRepository accountRepository;
 
@@ -43,6 +50,7 @@ public class AccountServiceImpl implements AccountService {
         return accountRepository.getAccountInfo();
     }
 
+
     @Override
     public List<AccountInfoExtraDTO> getAccountsInfoExtra() {
         return accountRepository.getAccountsInfoExtra();
@@ -58,7 +66,19 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Page<Account> getAllAccounts(Pageable pageable) {
-        return accountRepository.findAll(pageable);
+    public Page<Account> getAllAccounts(Pageable pageable, String search) {
+        Specification<Account> whereAcc = null;
+        if (!StringUtils.isEmpty(search)) {
+            AccountSpecification AccSpe =new AccountSpecification("fullName","LIKE",search);
+            whereAcc=Specification.where(AccSpe);
+        }
+
+
+
+        return accountRepository.findAll(whereAcc,pageable);
     }
+
+
+
+
 }

@@ -1,6 +1,7 @@
 package com.management.employee.config;
 
 import com.management.employee.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,6 +15,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserService userService;
+    @Bean
+    public ModelMapper modelMapper(){
+        return  new ModelMapper();
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

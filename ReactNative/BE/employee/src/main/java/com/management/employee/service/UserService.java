@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface UserService extends UserDetailsService {
+    User findUserName(String username);
     Boolean existsByUsername(String username);
 
     User createUser(User user);

@@ -13,6 +13,12 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRespository userRespository;
+
+    @Override
+    public User findUserName(String username) {
+        return userRespository.findByUsername(username);
+    }
+
     @Override
     public Boolean existsByUsername(String username) {
         return userRespository.existsByUsername(username);

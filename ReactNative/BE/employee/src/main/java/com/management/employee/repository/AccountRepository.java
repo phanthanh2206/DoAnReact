@@ -3,10 +3,10 @@ package com.management.employee.repository;
 import com.management.employee.dto.AccountInfoDTO;
 import com.management.employee.dto.AccountInfoExtraDTO;
 import com.management.employee.entity.Account;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -32,4 +32,5 @@ public interface AccountRepository extends JpaRepository<Account,Integer>, JpaSp
     public List<AccountInfoExtraDTO> getAccountsInfoExtra();
 
     public List<Account> findByAgeOrSkillOrLevelOrDepartmentId(int age,String skill,String level,int departmentId);
+
 }

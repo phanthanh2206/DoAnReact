@@ -1,6 +1,7 @@
 package com.management.employee.service;
 
 import com.management.employee.dto.AccountInfoDTO;
+import com.management.employee.dto.AccountInfoDTOimpl;
 import com.management.employee.dto.AccountInfoExtraDTO;
 import com.management.employee.entity.Account;
 import org.springframework.data.domain.Page;
@@ -22,5 +23,6 @@ public interface AccountService {
     public List<AccountInfoExtraDTO> getAccountsInfoExtra();
     public List<Account> searchAccount(int age,String skill,String level,int departmentId);
     public List<Account> createMultiAccount(List<Account> accounts);
-    public Page<Account> getAllAccounts(Pageable pageable);
+    public Page<Account> getAllAccounts(Pageable pageable, String search);
+
 }

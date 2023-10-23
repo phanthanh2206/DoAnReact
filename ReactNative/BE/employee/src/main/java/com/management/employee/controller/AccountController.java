@@ -1,6 +1,7 @@
 package com.management.employee.controller;
 
 import com.management.employee.dto.AccountInfoDTO;
+import com.management.employee.dto.AccountInfoDTOimpl;
 import com.management.employee.dto.AccountInfoExtraDTO;
 import com.management.employee.entity.Account;
 import com.management.employee.service.AccountService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -16,6 +18,11 @@ import java.util.List;
 public class AccountController {
     @Autowired
     private AccountService accountService;
+    @GetMapping(value = "/account/findAll")
+    public ResponseEntity<?> findAll (Pageable pageable, @RequestParam(required = false) String search) {
+        Page<Account> ls_Acc = accountService.getAllAccounts( pageable, search);
+        return new ResponseEntity<>(ls_Acc,HttpStatus.OK);
+    }
 
     @GetMapping(value = "/account/getAll")
     public List<Account> getAllAccount() {
@@ -63,10 +70,5 @@ public class AccountController {
         return accountService.createMultiAccount(accounts);
     }
 
-    @GetMapping(value = "/account/getAllAccounts")
-    public ResponseEntity<List<Account>> getAllAccounts(Pageable pageable) {
-        Page<Account> page = accountService.getAllAccounts(pageable);
-        HttpHeaders headers = new HttpHeaders();
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
-    }
+
 }
